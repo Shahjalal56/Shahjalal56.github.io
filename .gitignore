@@ -1,0 +1,16 @@
+# Source material that lives in this folder but isn't part of the site.
+# The files stay on disk — they just don't get published.
+
+# byte-identical duplicate of assets/Md-Shahjalal-Flutter-Developer-CV.pdf
+flutter_developer_md_shahjalal.pdf
+
+# original headshot source, already cut out into assets/img/
+make_to_professional_job_holder*.jpeg
+
+# OS junk
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# local tool permissions, not part of the site
+.claude/settings.local.json
