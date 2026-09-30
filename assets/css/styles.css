@@ -257,12 +257,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 .card__ph{
   position:relative;
-  width:100%;max-width:330px;margin:14px auto -1px;
+  width:100%;max-width:330px;max-height:350px;margin:10px auto -1px;
+  object-fit:cover;object-position:center top;
   filter:contrast(1.06) saturate(.94);
   -webkit-mask-image:linear-gradient(#000 76%,transparent 99%);
   mask-image:linear-gradient(#000 76%,transparent 99%);
 }
-.card__body{position:relative;padding:0 22px 22px;text-align:center}
+.card__body{position:relative;padding:0 22px 18px;text-align:center}
 .card__name{font:700 21px/1.2 var(--d-face);letter-spacing:-.02em}
 .card__role{
   margin-top:5px;font:400 12px/1 var(--m-face);
