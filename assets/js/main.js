@@ -10,7 +10,11 @@
 (function () {
   'use strict';
 
-  var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var calm = document.documentElement.dataset.motion === 'off';
+  window.addEventListener('portfolio:motion', function () {
+    calm = document.documentElement.dataset.motion === 'off';
+    if (calm) document.querySelectorAll('.rv').forEach(function (el) { el.classList.add('is-in'); });
+  });
 
   /* ── 1. nav ──────────────────────────────────────────── */
 
@@ -61,6 +65,12 @@
       el.classList.add('is-in');
     });
   } else {
+    document.documentElement.classList.add('reveal-ready');
+    document.querySelectorAll('.proj, .stack').forEach(function (group) {
+      Array.prototype.forEach.call(group.children, function (el, i) {
+        el.style.setProperty('--reveal-delay', (i % 3) * 85 + 'ms');
+      });
+    });
     var reveal = new IntersectionObserver(
       function (rows, self) {
         rows.forEach(function (r) {
@@ -80,7 +90,7 @@
   /* ── 3. marquee: duplicate the track so the loop is seamless ── */
 
   var track = document.querySelector('.ledger__track');
-  if (track && !calm) {
+  if (track) {
     track.innerHTML += track.innerHTML;
   }
 
@@ -305,20 +315,20 @@
     card.style.removeProperty('--ry');
   }
 
-  if (!calm && window.matchMedia('(hover: hover)').matches) {
+  if (window.matchMedia('(hover: hover)').matches) {
     Array.prototype.forEach.call(cards, function (card) {
       var queued = false;
       var last = null;
 
       card.addEventListener('pointermove', function (ev) {
-        if (ev.pointerType !== 'mouse') return;
+        if (calm || ev.pointerType !== 'mouse') return;
         last = ev;
         card.classList.add('is-tilt');
         if (queued) return;
         queued = true;
         requestAnimationFrame(function () {
           queued = false;
-          if (last) tiltFrom(card, last);
+          if (last && !calm) tiltFrom(card, last);
         });
       });
 

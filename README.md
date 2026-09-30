@@ -43,6 +43,16 @@ Two things to know before editing those cards:
 The tilt is skipped entirely for `prefers-reduced-motion` and for
 non-mouse pointers.
 
+The hero includes orbiting lights, a moving gradient headline and drifting
+particles. Scroll reveals are staggered across the grids; statistics count up
+once, buttons respond to the pointer, and a top bar shows reading progress.
+`assets/js/motion.js` manages these enhancements without dependencies. The
+navigation's Motion button pauses effects and remembers the visitor's choice.
+System reduced-motion preferences are respected, ambient animations pause in
+background tabs, and content remains visible when JavaScript is unavailable.
+When changing CSS or JavaScript, update their version query strings in
+`index.html` so returning visitors receive the latest assets.
+
 ## Files
 
 ```

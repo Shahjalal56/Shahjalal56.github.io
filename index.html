@@ -30,9 +30,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/styles.css?v=20260930-profile" />
+<link rel="stylesheet" href="assets/css/styles.css?v=20260930-motion" />
 </head>
 <body>
+<div class="scroll-progress" aria-hidden="true"></div>
+<div class="cursor-aura" aria-hidden="true"></div>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="nav" id="nav">
@@ -50,6 +52,7 @@
     </nav>
 
     <div class="nav__act">
+      <button class="motion-toggle" type="button" aria-label="Pause animations" aria-pressed="false" hidden><span aria-hidden="true">◉</span><span class="motion-toggle__label">Motion on</span></button>
       <a class="btn btn--solid" id="hire" href="mailto:shahzalalkhan@gmail.com?subject=Flutter%20role%20—%20let%27s%20talk">Hire me</a>
       <button class="burger" id="burger" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
         <span></span><span></span>
@@ -70,6 +73,7 @@
 
 <!-- ─────────────  HERO  ───────────── -->
 <section class="hero">
+  <div class="hero__constellation" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   <div class="shell hero__in">
 
     <div class="hero__text">
@@ -112,6 +116,7 @@
 
     <aside class="card rv" data-rv="3" aria-label="Profile">
       <div class="card__glow" aria-hidden="true"></div>
+      <div class="portrait-orbits" aria-hidden="true"><span></span><span></span><span></span></div>
       <img class="card__ph" src="assets/img/shahjalal-transparent.png" width="1130" height="1392"
            alt="Md Shahjalal" fetchpriority="high" />
       <div class="card__body">
@@ -488,6 +493,7 @@
 }
 </script>
 
-<script src="assets/js/main.js"></script>
+<script src="assets/js/motion.js?v=20260930-motion"></script>
+<script src="assets/js/main.js?v=20260930-motion"></script>
 </body>
 </html>
